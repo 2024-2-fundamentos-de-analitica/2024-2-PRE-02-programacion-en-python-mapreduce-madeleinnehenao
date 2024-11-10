@@ -51,7 +51,6 @@ def line_preprocessing(sequence):
         )
         for key, value in sequence
     ]
-
     return sequence
 
 
@@ -69,11 +68,6 @@ def line_preprocessing(sequence):
 #
 def mapper(sequence):
     """Mapper"""
-    # result = []
-    # for _, value in sequence:
-    #   for word in value.split():
-    #       result.append((word, 1))
-
     return [(word, 1) for _, value in sequence for word in value.split()]
 
 
@@ -132,20 +126,22 @@ def create_ouptput_directory(output_directory):
 #
 def save_output(output_directory, sequence):
     """Save Output"""
-    with open(f"{output_directory}/part-0000", "w", encoding="utf-8") as f:
+    with open(f"{output_directory}/part-00000", "w", encoding="utf-8") as f:
         for key, value in sequence:
             f.write(f"{key}\t{value}\n")
 
 
+#
 # La siguiente función crea un archivo llamado _SUCCESS en el directorio
 # entregado como parámetro.
 #
 def create_marker(output_directory):
     """Create Marker"""
-    with open(f"{output_directory}/_SUCCES", "w", encoding="utf-8") as f:
+    with open(f"{output_directory}/_SUCCESS", "w", encoding="utf-8") as f:
         f.write("")
 
 
+#
 # Escriba la función job, la cual orquesta las funciones anteriores.
 #
 def run_job(input_directory, output_directory):
